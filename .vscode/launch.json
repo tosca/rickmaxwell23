@@ -5,12 +5,18 @@
     "version": "0.2.0",
    
     "configurations": [
+        
+       
+        { "name": ".Net Core Attach",
+           "type": "coreclr",
+           "request": "attach",
+        },
 
-        {
-            "type": "msedge",
+        {   "type": "msedge",
             "request": "launch",
             "name": "launch index.html",
-            "file": "${workspaceFolder}/index.html"
+            "file": "${workspaceFolder}/index.html",
+        
         }
     ]
-}
+}   
