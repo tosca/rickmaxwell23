@@ -5,8 +5,13 @@
     "version": "0.2.0",
    
     "configurations": [
+        {
+            "name": ".",
+            "type": "coreclr",
+            "request": "attach"
+        },
        
-        { "name": ".Net Core Attach",
+        { "name": ".Net/C/",
          "type": "coreclr",
            "request": "attach",
         },

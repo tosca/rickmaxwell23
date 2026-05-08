@@ -1,5 +1,5 @@
  body {
-	font-size: 1rem;
+	font-size: 2rem;
 	font-weight: 400;
 	color: #121214;
 	 display: block;
@@ -77,9 +77,10 @@ hr {
 .nav li a {
 	color: #96592b;
 	color: #888888;
+	color:#7a432c74;
 }
 .nav-link {
-	color: #7a432c;
+	color: #96592b;
 }
 .nav-link:focus, .nav-link:hover {
     color: #121214;
