@@ -81,6 +81,7 @@ hr {
 }
 .nav-link {
 	color: #96592b;
+	font-size: 1.2rem;
 }
 .nav-link:focus, .nav-link:hover {
     color: #121214;
