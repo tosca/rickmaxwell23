@@ -8,7 +8,8 @@
 	padding-right:20%;
 	 width: 100%; 
 	 height: 100%; 
-	 font-family: 'Open Sans', sans-serif;   
+	 font-family: 'Open Sans', sans-serif;
+	 background-color: #ece9e9;   
 }
 p { 
 	 font-weight: 400;
@@ -108,6 +109,19 @@ hr {
 	height: 100%;
 	overflow-x: hidden;	
 }
+.one-third-center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0.5rem 2rem;
+}
+.one-third-center img {
+	width: 100%;
+	max-width: 600px;
+	height: auto;
+	margin: 0 auto;
+	padding: 0 1.5rem;
+}
 .home-statement, .portfolio-statement {
 	position: relative;
 	display: block;
@@ -115,7 +129,7 @@ hr {
 .page-section{
 	position: relative;
 	display: block;
-	padding-top: 70px;
+	padding-top: 60px;
 	-webkit-transition: all 25s ease-in-out;
 	transition: all 25s ease-in-out;
 } 
