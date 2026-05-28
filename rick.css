@@ -107,12 +107,13 @@ hr {
 /**** page section  ****/
 .page-wrap {
 	position: relative;
+	padding-top: 70px;
 	display: block;
 	justify-content: center;
 	align-items: center;
-	height: 100%;
 	overflow-x: hidden;	
 }
+	
 .one-third-center {
 	display: flex;
 	justify-content: center;
@@ -121,7 +122,6 @@ hr {
 }
 .one-third-center img {
 	width: 100%;
-	max-width: 600px;
 	height: auto;
 	margin: 0 auto;
 	padding: 0 1.5rem;
@@ -129,6 +129,8 @@ hr {
 .home-statement, .portfolio-statement {
 	position: relative;
 	display: block;
+	padding-left: 30%;
+	padding-right: 30%;
 }
 .page-section{
 	position: relative;
@@ -169,7 +171,7 @@ hr {
 }
  /******Portfolio **********/
  #portfolio img {
-	max-width: 100%;
+	width: 100%;
 	padding-bottom:2rem;
  }
 .about-hero {
@@ -211,7 +213,7 @@ html.opacity:hover img {
 body {
 	padding-bottom: 90px;
 }
-/* Small devices (landscape phones, 576px and up)*/
+/* Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
 	.home-statement {
 		max-width: 80%;		  		
@@ -219,8 +221,9 @@ body {
 	.statement {
 		padding: 1rem;
 	}
-}
-/* Medium devices (tablets, 768px and up)*/@media (max-width: 767px) {
+}*/
+/* Medium devices (tablets, 768px and up)
+@media (max-width: 767px) {
 	.one-third-center {
 		padding: 0;
 	}
@@ -231,10 +234,11 @@ body {
 		width: 100%;
 	}
 }
-@media (min-width: 768px) {	
+*/
+/*@media (min-width: 768px) {	
 			
 }
-/*Large devices (desktops, 992px and up)*/
+/*Large devices (desktops, 992px and up)
 @media (min-width: 992px) { 
 	.portfolio-statement {
 		max-width: 80%;
@@ -245,4 +249,4 @@ a {
 }
 a:hover {
 	color:#522213;
-}
+}*/
