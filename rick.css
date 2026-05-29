@@ -212,7 +212,7 @@ body {
 
 /* Small devices ( 576px and up) */
 @media (min-width: 576px) {
-	.home-statement {
+	.home-statement,  {
 		width: 100%;
 	}
 }
@@ -270,7 +270,7 @@ body {
 /* Large devices */
 @media (min-width: 992px) {
 	.portfolio-statement {
-		max-width: 80%;
+		one-third-center img width: 100%;
 	}
 }
 
