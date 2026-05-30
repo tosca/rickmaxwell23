@@ -247,6 +247,17 @@ html.opacity:hover img {
 		max-width: 100%;
 		padding: 0;
 	}
+
+	/* Ensure all images use full available width on small devices */
+	img,
+	.img-fluid,
+	.one-third-center img {
+		width: 100% !important;
+		max-width: 100% !important;
+		height: auto !important;
+		padding: 0 !important;
+		box-sizing: border-box;
+	}
 }
 
 /* Medium devices */
