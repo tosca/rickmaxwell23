@@ -1,10 +1,9 @@
 body {
 	margin: 0 auto;
 	padding-top: 90px;
-	padding-left: 10%;
-	padding-right: 10%;
+	padding-left: 3%;
+	padding-right: 3%;
 	width: 100%;
-	min-width: 320px;
 	font-family: 'Open Sans', sans-serif;
 	background-color: #ece9e9;
 }
@@ -15,12 +14,13 @@ html {
 	color: #121214;
 	display: block;
 }
+/*
 p {
 	font-weight: 400;
 	line-height: 2;
 	padding-bottom: 2rem;
 }
-/*.h2, h2 {
+.h2, h2 {
 	font-size: 1.5rem;
 }*/
 .color{ color:#96592b; }
@@ -124,6 +124,7 @@ hr {
 }
 .one-third-center img {
 	width: 100%;
+	display:flex;
 	height: auto;
 	margin: 0 auto;
 	padding: 0 1.5rem;
@@ -167,7 +168,7 @@ hr {
 }
  /******Portfolio **********/
  #portfolio img {
-	width: 100%;
+	max-width: 100%;
 	padding-bottom:2rem;
  }
 .about-hero {
@@ -199,26 +200,38 @@ hr {
 html.opacity:hover img {
 	opacity: 1;
 }
-.btn-success a:active { 
+.btn-success a:active {
 	color: white;
 }
 
- /* Small devices (phones)
+/* Small devices (phones) */
 @media (max-width: 767px) {
-	
+	body {
+		padding-left: 1rem;
+		padding-right: 1rem;
+	}
+
+	.navbar {
+		margin-top: 0;
+	}
+
 	.navbar .navbar-brand {
 		font-size: 1.7rem;
 		line-height: 2.5rem;
 	}
+
 	.nav-link {
-		font-size: 1.1rem; 
+		font-size: 1.1rem;
 		padding: 0.5rem 0.4rem;
 	}
+
 	.home-statement,
 	.portfolio-statement,
 	.statement {
 		font-size: 1rem;
+		width: auto;
 	}
+
 	.section-title {
 		font-size: 1.8rem;
 		padding: 2rem 0 0;
@@ -228,11 +241,14 @@ html.opacity:hover img {
 		flex-direction: column;
 		padding: 0.5rem 0.5rem;
 	}
+
 	.one-third-center img {
+		width: 100%;
+		max-width: 100%;
 		padding: 0;
 	}
 }
-*/
+
 /* Medium devices */
 @media (min-width: 768px) {
 	body {
@@ -243,9 +259,12 @@ html.opacity:hover img {
 
 /* Large devices */
 @media (min-width: 992px) {
-	one-third-center img {
-		 padding-left: 8%;
-		 padding-right
+	.portfolio-statement {
+		max-width: 80%;
+	}
+
+	.one-third-center img {
+		padding: 0 1rem;
 	}
 }
 
