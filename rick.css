@@ -202,48 +202,23 @@ html.opacity:hover img {
 .btn-success a:active { 
 	color: white;
 }
-/*.section, img, .btn:hover  {
-	-webkit-transition: all 350ms ease-in-out 0s;
-	transition: all 350ms ease-in-out 0s;
-}
-body {
-	padding-bottom: 90px;
-}*/
-
-/* Small devices ( 576px and up) */
-@media (min-width: 576px) {
-	.home-statement,  {
-		width: 100%;
-	}
-}
 
  /* Small devices (phones) */
 @media (max-width: 767px) {
-	body {
-		padding-left: 1rem;
-		padding-right: 1rem;
-	}
-
-	.navbar {
-		margin-top: 0;
-	}
-
+	
 	.navbar .navbar-brand {
 		font-size: 1.7rem;
 		line-height: 2.5rem;
 	}
-
 	.nav-link {
 		font-size: 1.1rem;
 		padding: 0.5rem 0.4rem;
 	}
-
 	.home-statement,
 	.portfolio-statement,
 	.statement {
 		font-size: 1rem;
 	}
-
 	.section-title {
 		font-size: 1.8rem;
 		padding: 2rem 0 0;
@@ -253,7 +228,6 @@ body {
 		flex-direction: column;
 		padding: 0.5rem 0.5rem;
 	}
-
 	.one-third-center img {
 		padding: 0;
 	}
@@ -269,8 +243,9 @@ body {
 
 /* Large devices */
 @media (min-width: 992px) {
-	.portfolio-statement {
-		one-third-center img width: 100%;
+	one-third-center img {
+		 padding-left: 8%;
+		 padding-right
 	}
 }
 
