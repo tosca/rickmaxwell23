@@ -181,6 +181,21 @@ hr {
 	display: flex;
 	justify-content: center;
  }
+
+/* Utility: remove horizontal padding/margins for image containers */
+.no-side-padding,
+.no-side-padding img {
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+	margin-left: 0 !important;
+	margin-right: 0 !important;
+	box-sizing: border-box;
+}
+
+/* Convenience: apply to one-third-center when needed */
+.one-third-center.no-side-padding img {
+	padding: 0 !important;
+}
 /***** contact   *****/
 .contact-bg {
     background-image: url(img/bending-03.png);
