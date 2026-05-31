@@ -1,58 +1,69 @@
 from PIL import Image
+from pathlib import Path
 import os
 
-src = "homeImage-2.jpg"
-out_jpeg = "homeImage-2-opt.jpg"
-out_webp = "homeImage-2.webp"
-max_width = 1920
-jpeg_quality = 75
-webp_quality = 75
+SOURCE_ROOT = Path("img")
+HOME_SOURCE = Path("homeImage-2.jpg")
+MAX_WIDTH = 1920
+JPEG_QUALITY = 75
+WEBP_QUALITY = 75
 
-def format_bytes(n):
-    return str(n)
+SUPPORTED_EXTENSIONS = {".jpg", ".jpeg", ".png"}
 
-# Ensure source exists
-if not os.path.exists(src):
-    raise SystemExit(f"Source file not found: {src}")
 
-orig_size = os.path.getsize(src)
+def format_bytes(n: int) -> str:
+    return f"{n:,} bytes"
 
-with Image.open(src) as im:
+
+def resize_image(im: Image.Image) -> Image.Image:
     orig_w, orig_h = im.size
-    print(f"Original path: {os.path.abspath(src)}")
-    print(f"Original size (bytes): {format_bytes(orig_size)}")
-    print(f"Original dimensions: {orig_w}x{orig_h}")
+    if orig_w <= MAX_WIDTH:
+        return im.copy()
 
-    # Only resize if wider than max_width
-    if orig_w > max_width:
-        new_w = max_width
-        new_h = int(max_width * orig_h / orig_w)
-        im_resized = im.resize((new_w, new_h), Image.LANCZOS)
-        print(f"Resized to: {new_w}x{new_h}")
-    else:
-        im_resized = im.copy()
-        print("No resize needed (width <= max)")
+    new_w = MAX_WIDTH
+    new_h = int(MAX_WIDTH * orig_h / orig_w)
+    return im.resize((new_w, new_h), Image.LANCZOS)
 
-    # Convert to RGB if necessary for JPEG
-    if im_resized.mode in ("RGBA", "P"):
-        im_rgb = im_resized.convert("RGB")
-    else:
-        im_rgb = im_resized
 
-    # Save optimized JPEG
-    im_rgb.save(out_jpeg, "JPEG", quality=jpeg_quality, optimize=True, progressive=True)
-    jpeg_size = os.path.getsize(out_jpeg)
-    print(f"Saved JPEG path: {os.path.abspath(out_jpeg)}")
-    print(f"JPEG size (bytes): {format_bytes(jpeg_size)}")
+def save_webp(image: Image.Image, out_path: Path) -> int:
+    image.save(out_path, "WEBP", quality=WEBP_QUALITY, method=6)
+    return out_path.stat().st_size
 
-    # Save WebP
-    im_rgb.save(out_webp, "WEBP", quality=webp_quality, method=6)
-    webp_size = os.path.getsize(out_webp)
-    print(f"Saved WebP path: {os.path.abspath(out_webp)}")
-    print(f"WebP size (bytes): {format_bytes(webp_size)}")
 
-    # Summary line
-    print("SUMMARY:")
-    print(f"{os.path.abspath(src)} {orig_size}")
-    print(f"{os.path.abspath(out_jpeg)} {jpeg_size}")
-    print(f"{os.path.abspath(out_webp)} {webp_size}")
+def save_jpeg(image: Image.Image, out_path: Path) -> int:
+    image.save(out_path, "JPEG", quality=JPEG_QUALITY, optimize=True, progressive=True)
+    return out_path.stat().st_size
+
+
+def process_path(path: Path) -> None:
+    print(f"Processing: {path}")
+    orig_size = path.stat().st_size
+
+    with Image.open(path) as im:
+        im_resized = resize_image(im)
+        if im_resized.mode in ("RGBA", "P"):
+            im_rgb = im_resized.convert("RGB")
+        else:
+            im_rgb = im_resized
+
+        webp_path = path.with_suffix(".webp")
+        webp_size = save_webp(im_rgb, webp_path)
+        print(f"  -> WebP: {webp_path} ({format_bytes(webp_size)})")
+
+        if path.suffix.lower() in {".jpg", ".jpeg"}:
+            optimized_jpeg_path = path.with_name(path.stem + "-opt.jpg")
+            jpeg_size = save_jpeg(im_rgb, optimized_jpeg_path)
+            print(f"  -> Optimized JPEG: {optimized_jpeg_path} ({format_bytes(jpeg_size)})")
+
+    print(f"  Original: {path} ({format_bytes(orig_size)})\n")
+
+
+if __name__ == "__main__":
+    if HOME_SOURCE.exists():
+        process_path(HOME_SOURCE)
+
+    for path in SOURCE_ROOT.rglob("*"):
+        if path.suffix.lower() in SUPPORTED_EXTENSIONS:
+            process_path(path)
+
+    print("Done. Generated WebP variants for supported images.")
