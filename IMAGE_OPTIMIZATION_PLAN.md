@@ -306,11 +306,12 @@ picture img {
 
 ## Notes & Recommendations
 
-1. **Backup First**: Keep originals in an archive folder
-2. **Quality Verification**: Spot-check 5-10 images after compression
-3. **Version Control**: Commit changes incrementally
-4. **Monitor**: Use Google PageSpeed Insights before/after
-5. **Future Workflow**: 
+1. **Recent markup fix**: `index.html` now has a corrected `7369.jpg` `<img>` tag and the `2020-2022` images all use the new `ptb-20` padding helper.
+2. **Backup First**: Keep originals in an archive folder
+3. **Quality Verification**: Spot-check 5-10 images after compression
+4. **Version Control**: Commit changes incrementally
+5. **Monitor**: Use Google PageSpeed Insights before/after
+6. **Future Workflow**: 
    - Export from camera/Lightroom at 70% quality, 1500px max
    - Use WebP as primary format
    - Create mobile variants automatically
