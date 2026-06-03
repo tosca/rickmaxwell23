@@ -190,7 +190,7 @@ hr {
 	transform: rotate(90deg);
 	transform-origin: center center;
 	display: block;
-	margin: 0 auto;
+	margin: 2rem auto;
 }
 
 /* Utility: remove horizontal padding/margins for image containers */
