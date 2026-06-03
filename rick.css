@@ -40,6 +40,10 @@ img {
 	padding-top: 40px;
 	padding-bottom: 40px;
 }
+.ptb-20 {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
 .p-lr{
 	padding-left: 2rem;
 	padding-right: 2rem;
@@ -127,7 +131,7 @@ hr {
 	display:flex;
 	height: auto;
 	margin: 0 auto;
-	padding: 0 1.5rem;
+	padding: 1rem 1.5rem;
 }
 .page-section{
 	position: relative;
@@ -181,6 +185,13 @@ hr {
 	display: flex;
 	justify-content: center;
  }
+
+.rotate-right {
+	transform: rotate(90deg);
+	transform-origin: center center;
+	display: block;
+	margin: 0 auto;
+}
 
 /* Utility: remove horizontal padding/margins for image containers */
 .no-side-padding,
@@ -291,6 +302,17 @@ html.opacity:hover img {
 
 	.one-third-center img {
 		padding: 0 1rem;
+	}
+}
+
+/* Landscape screens: preserve full image height top-to-bottom */
+@media (orientation: landscape) {
+	img {
+		max-width: 100%;
+		width: auto;
+		height: auto;
+		max-height: calc(100vh - 120px);
+		display: block;
 	}
 }
 
